@@ -295,9 +295,6 @@
     <ClInclude Include="events\_events.h">
       <Filter>events</Filter>
     </ClInclude>
-    <ClInclude Include="includes\imhotkeys.h">
-      <Filter>includes</Filter>
-    </ClInclude>
     <ClInclude Include="gui\tabs\host_tab.h">
       <Filter>gui\tabs</Filter>
     </ClInclude>
@@ -312,6 +309,9 @@
     <ClInclude Include="user\resources.h" />
     <ClInclude Include="gui\tabs\debug_tab.h">
       <Filter>gui\tabs</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\keybindsconfig.h">
+      <Filter>user</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

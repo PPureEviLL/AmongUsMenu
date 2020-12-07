@@ -12,7 +12,7 @@
 #include "_events.h"
 #include "_rpc.h"
 #include "json.hpp"
-#include "imhotkeys.h"
+#include "keybindsconfig.h"
 #include "utility.h"
 #include <bitset>
 
@@ -25,18 +25,13 @@ private:
 
 public:
 
-	std::vector<ImHotkeys::HotKey> Shortcuts = {
-		{"Toggle Menu", { 0xFF, 0xFF, 0xFF, VK_DELETE } },
-		{"Toggle Radar", { 0xFF, 0xFF, 0xFF, VK_INSERT } },
-		{"Toggle Console", { 0xFF, 0xFF, 0xFF, VK_HOME } },
-		{"Repair Sabotage", { 0xFF, 0xFF, 0xFF, VK_END } }
-	};
+	KeyBindsTest::KeyBindsConfig KeyBinds = KeyBindsTest::KeyBindsConfig();
 
 	bool ImGuiInitialized = false;
 	bool ShowMenu = false;
 
 #ifdef _DEBUG
-	bool showDebugTab = false;
+	bool showDebugTab = true;
 #endif
 
 	std::string CurrentScene;

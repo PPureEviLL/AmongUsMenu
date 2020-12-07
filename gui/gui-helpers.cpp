@@ -55,3 +55,21 @@ bool SteppedSliderFloat(const char* label, float* v, float v_min, float v_max, f
 	*v = v_min + float(v_i) * v_step;
 	return valueChanged;
 }
+
+void hotkey(uint8_t & key)
+{
+	ImGui::Text((std::string("[ ") + KeyBindsTest::virtualKeyToString(key) + std::string(" ]")).c_str());
+
+	if (!ImGui::IsItemHovered())
+		return;
+
+	ImGui::SetTooltip("Press any key to change keybind");
+	ImGuiIO& io = ImGui::GetIO();
+	for (int i = 0; i < IM_ARRAYSIZE(io.KeysDown); i++)
+		if (ImGui::IsKeyPressed(i))
+			key = i != VK_ESCAPE ? i : 0;
+
+	for (int i = 0; i < IM_ARRAYSIZE(io.MouseDown); i++)
+		if (ImGui::IsMouseDown(i))
+			key = i + (i > 1 ? 2 : 1);
+}

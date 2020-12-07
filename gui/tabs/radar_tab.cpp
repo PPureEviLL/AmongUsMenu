@@ -5,7 +5,8 @@ namespace RadarTab {
 		if (ImGui::BeginTabItem("Radar")) {
 			ImGui::Dummy(ImVec2(4, 4));
 			ImGui::Checkbox("Show Radar", &State.ShowRadar);
-
+			ImGui::SameLine();
+			hotkey(State.KeyBinds.Toggle_Radar);
 			ImGui::Dummy(ImVec2(7, 7));
 			ImGui::Separator();
 			ImGui::Dummy(ImVec2(7, 7));
