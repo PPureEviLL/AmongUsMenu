@@ -25,7 +25,7 @@ private:
 
 public:
 
-	KeyBindsTest::KeyBindsConfig KeyBinds = KeyBindsTest::KeyBindsConfig();
+	KeyBinds::KeyBindsConfig KeyBinds = KeyBinds::KeyBindsConfig();
 
 	bool ImGuiInitialized = false;
 	bool ShowMenu = false;

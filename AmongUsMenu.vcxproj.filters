@@ -310,7 +310,7 @@
     <ClInclude Include="gui\tabs\debug_tab.h">
       <Filter>gui\tabs</Filter>
     </ClInclude>
-    <ClInclude Include="includes\keybindsconfig.h">
+    <ClInclude Include="user\keybindsconfig.h">
       <Filter>user</Filter>
     </ClInclude>
   </ItemGroup>

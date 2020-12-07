@@ -21,19 +21,19 @@ LRESULT __stdcall WndProc(const HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lPar
 	if (!State.ImGuiInitialized)
 		return CallWindowProc(oWndProc, hWnd, uMsg, wParam, lParam);
 
-	KeyBindsTest::WndProc(uMsg, wParam);
+	KeyBinds::WndProc(uMsg, wParam);
 
 	if (ImGui_ImplWin32_WndProcHandler(hWnd, uMsg, wParam, lParam))
 		return true;
 
 	if (!ImGui::IsPopupOpen("", ImGuiPopupFlags_AnyPopup)) {
-		KeyBindsTest::KeyBindCallBackType keybind = KeyBindsTest::GetKeyBinds(&State.KeyBinds);
+		KeyBinds::KeyBindCallBackType keybind = KeyBinds::GetKeyBinds(&State.KeyBinds);
 
-		if (keybind != KeyBindsTest::KeyBindCallBackType::None) {
-			if (keybind == KeyBindsTest::KeyBindCallBackType::Toggle_Menu) State.ShowMenu = !State.ShowMenu;
-			if (keybind == KeyBindsTest::KeyBindCallBackType::Toggle_Radar) State.ShowRadar = !State.ShowRadar;
-			if (keybind == KeyBindsTest::KeyBindCallBackType::Toggle_Console) State.ShowConsole = !State.ShowConsole;
-			if (keybind == KeyBindsTest::KeyBindCallBackType::Repair_Sabotage && IsInGame()) RepairSabotage(*Game::pLocalPlayer);
+		if (keybind != KeyBinds::KeyBindCallBackType::None) {
+			if (keybind == KeyBinds::KeyBindCallBackType::Toggle_Menu) State.ShowMenu = !State.ShowMenu;
+			if (keybind == KeyBinds::KeyBindCallBackType::Toggle_Radar) State.ShowRadar = !State.ShowRadar;
+			if (keybind == KeyBinds::KeyBindCallBackType::Toggle_Console) State.ShowConsole = !State.ShowConsole;
+			if (keybind == KeyBinds::KeyBindCallBackType::Repair_Sabotage && IsInGame()) RepairSabotage(*Game::pLocalPlayer);
 		}
 	}
 

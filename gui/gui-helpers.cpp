@@ -58,7 +58,7 @@ bool SteppedSliderFloat(const char* label, float* v, float v_min, float v_max, f
 
 void hotkey(uint8_t & key)
 {
-	ImGui::Text((std::string("[ ") + KeyBindsTest::virtualKeyToString(key) + std::string(" ]")).c_str());
+	ImGui::Text((std::string("[ ") + virtualKeyToString(key) + std::string(" ]")).c_str());
 
 	if (!ImGui::IsItemHovered())
 		return;
@@ -72,4 +72,89 @@ void hotkey(uint8_t & key)
 	for (int i = 0; i < IM_ARRAYSIZE(io.MouseDown); i++)
 		if (ImGui::IsMouseDown(i))
 			key = i + (i > 1 ? 2 : 1);
+}
+
+const std::vector<std::pair<std::string, uint8_t>> keyMap = {
+	{ "0", '0' },
+	{ "1", '1' },
+	{ "2", '2' },
+	{ "3", '3' },
+	{ "4", '4' },
+	{ "5", '5' },
+	{ "6", '6' },
+	{ "7", '7' },
+	{ "8", '8' },
+	{ "9", '9' },
+	{ "A", 'A' },
+	{ "ADD", VK_ADD },
+	{ "B", 'B' },
+	{ "C", 'C' },
+	{ "D", 'D' },
+	{ "DECIMAL", VK_DECIMAL },
+	{ "DIVIDE", VK_DIVIDE },
+	{ "E", 'E' },
+	{ "E", VK_END },
+	{ "F", 'F' },
+	{ "F1", VK_F1 },
+	{ "F10", VK_F10 },
+	{ "F11", VK_F11 },
+	{ "F12", VK_F12 },
+	{ "F2", VK_F2 },
+	{ "F3", VK_F3 },
+	{ "F4", VK_F4 },
+	{ "F5", VK_F5 },
+	{ "F6", VK_F6 },
+	{ "F7", VK_F7 },
+	{ "F8", VK_F8 },
+	{ "F9", VK_F9 },
+	{ "G", 'G' },
+	{ "H", 'H' },
+	{ "I", 'I' },
+	{ "INSERT", VK_INSERT },
+	{ "J", 'J' },
+	{ "K", 'K' },
+	{ "L", 'L' },
+	{ "M", 'M' },
+	{ "MOUSE1", VK_LBUTTON },
+	{ "MOUSE2", VK_RBUTTON },
+	{ "MOUSE3", VK_MBUTTON },
+	{ "MOUSE4", VK_XBUTTON1 },
+	{ "MOUSE5", VK_XBUTTON2 },
+	{ "MULTIPLY", VK_MULTIPLY },
+	{ "N", 'N' },
+	{ "NONE", 0x00 },
+	{ "NUMPAD_0", VK_NUMPAD0 },
+	{ "NUMPAD_1", VK_NUMPAD1 },
+	{ "NUMPAD_2", VK_NUMPAD2 },
+	{ "NUMPAD_3", VK_NUMPAD3 },
+	{ "NUMPAD_4", VK_NUMPAD4 },
+	{ "NUMPAD_5", VK_NUMPAD5 },
+	{ "NUMPAD_6", VK_NUMPAD6 },
+	{ "NUMPAD_7", VK_NUMPAD7 },
+	{ "NUMPAD_8", VK_NUMPAD8 },
+	{ "NUMPAD_9", VK_NUMPAD9 },
+	{ "O", 'O' },
+	{ "P", 'P' },
+	{ "Q", 'Q' },
+	{ "R", 'R' },
+	{ "S", 'S' },
+	{ "SPACE", VK_SPACE },
+	{ "SUBTRACT", VK_SUBTRACT },
+	{ "T", 'T' },
+	{ "U", 'U' },
+	{ "V", 'V' },
+	{ "W", 'W' },
+	{ "X", 'X' },
+	{ "Y", 'Y' },
+	{ "Z", 'Z' },
+	{ "`", VK_OEM_3 },
+};
+
+std::string virtualKeyToString(uint8_t vk) {
+	for (std::pair<std::string, int> key : keyMap) {
+		if (vk == key.second) {
+			return key.first;
+		}
+	}
+	return "NONE";
 }

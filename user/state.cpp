@@ -19,7 +19,7 @@ void Settings::Load() {
 	if (j_object.contains("ShowMenu"))
 		Settings::ShowMenu = j_object["ShowMenu"].get<bool>();
 	if (j_object.contains("KeyBinds"))
-		Settings::KeyBinds = KeyBindsTest::fromJson(j_object["KeyBinds"].get<json>());
+		Settings::KeyBinds = KeyBinds::fromJson(j_object["KeyBinds"].get<json>());
 
 	if (j_object.contains("ShowRadar"))
 		Settings::ShowRadar = j_object["ShowRadar"].get<bool>();
@@ -64,7 +64,7 @@ void Settings::Save() {
 		{"ShowRadar_DeadBodies", Settings::ShowRadar_DeadBodies},
 		{"ShowRadar_Ghosts", Settings::ShowRadar_Ghosts},
 		{"ShowRadar_RightClick_Teleport", Settings::ShowRadar_RightClick_Teleport},
-		{"KeyBinds", KeyBindsTest::toJson(Settings::KeyBinds) },
+		{"KeyBinds", KeyBinds::toJson(Settings::KeyBinds) },
 		{"MaxVision", Settings::MaxVision},
 		{"Wallhack", Settings::Wallhack},
 		{"UnlockVents", Settings::UnlockVents},
